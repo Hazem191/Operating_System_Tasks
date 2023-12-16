@@ -9,6 +9,7 @@ namespace FCFS_SJF_RR_PRIORITY
         public string Text { get; set; }
         public string Value { get; set; }
         public string Priority { get; set; }
+        public string Quantum { get; set; }
 
         public override string ToString()
         {
@@ -118,7 +119,39 @@ namespace FCFS_SJF_RR_PRIORITY
 
         public ArrayList Process()
         {
-            throw new NotImplementedException();
+            var array = new ArrayList();
+
+            array.AddRange(tasks);
+
+            var result = new ArrayList();
+
+            int index = 0;
+
+            while (array.Count > 0)
+            {
+                if (index >= array.Count)
+                {
+                    index = 0;
+                }
+
+                var currentItem = array[index] as ProcessorTask;
+
+                if (int.Parse(currentItem.Value) <= int.Parse(currentItem.Quantum))
+                {
+                    result.Add(array[index]);
+                    array.RemoveAt(index);
+                }
+                else
+                {
+                    currentItem.Value = (int.Parse(currentItem.Value) - int.Parse(currentItem.Quantum)).ToString();
+
+                    result.Add(new ProcessorTask { Text = currentItem.Text, Value = currentItem.Quantum, Quantum = currentItem.Quantum, Priority = currentItem.Priority });
+                }
+
+                index++;
+            }
+
+            return result;
         }
     }
 }

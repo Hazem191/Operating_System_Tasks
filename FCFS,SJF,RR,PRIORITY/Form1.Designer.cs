@@ -48,6 +48,8 @@
             this.p3 = new System.Windows.Forms.TextBox();
             this.p2 = new System.Windows.Forms.TextBox();
             this.p1 = new System.Windows.Forms.TextBox();
+            this.txt_Q = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -161,7 +163,7 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(85, 122);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(258, 225);
+            this.checkedListBox1.Size = new System.Drawing.Size(258, 207);
             this.checkedListBox1.TabIndex = 11;
             // 
             // button1
@@ -185,9 +187,9 @@
             this.comboBox1.Items.AddRange(new object[] {
             "FCFS",
             "SJF",
-            "ROUND ROBIN",
-            "PRIOTITY\t"});
-            this.comboBox1.Location = new System.Drawing.Point(815, 39);
+            "PRIOTITY",
+            "ROUND_ROBIN"});
+            this.comboBox1.Location = new System.Drawing.Point(815, 134);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 13;
@@ -228,11 +230,32 @@
             this.p1.TabIndex = 16;
             this.p1.Tag = "P1";
             // 
+            // txt_Q
+            // 
+            this.txt_Q.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.txt_Q.Location = new System.Drawing.Point(832, 210);
+            this.txt_Q.Name = "txt_Q";
+            this.txt_Q.Size = new System.Drawing.Size(104, 36);
+            this.txt_Q.TabIndex = 18;
+            this.txt_Q.Tag = "P3";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(775, 214);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 32);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Q";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 655);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txt_Q);
             this.Controls.Add(this.p2);
             this.Controls.Add(this.p1);
             this.Controls.Add(this.p4);
@@ -279,6 +302,8 @@
         private System.Windows.Forms.TextBox p3;
         private System.Windows.Forms.TextBox p2;
         private System.Windows.Forms.TextBox p1;
+        private System.Windows.Forms.TextBox txt_Q;
+        private System.Windows.Forms.Label label8;
     }
 }
 

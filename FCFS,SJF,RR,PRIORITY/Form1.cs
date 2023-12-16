@@ -14,10 +14,10 @@ namespace FCFS_SJF_RR_PRIORITY
         {
             var processor = ProcessorBuilder.Create(comboBox1.SelectedItem?.ToString(),
                 new ProcessorTask[] {
-                    new ProcessorTask{ Text = label1.Text, Value = textBox1.Text, Priority = p1.Text },
-                    new ProcessorTask{ Text = label2.Text, Value = textBox2.Text, Priority = p2.Text },
-                    new ProcessorTask{ Text = label3.Text, Value = textBox3.Text, Priority = p3.Text },
-                    new ProcessorTask{ Text = label4.Text, Value = textBox4.Text, Priority = p4.Text },
+                    new ProcessorTask{ Text = label1.Text, Value = textBox1.Text, Priority = p1.Text, Quantum = txt_Q.Text },
+                    new ProcessorTask{ Text = label2.Text, Value = textBox2.Text, Priority = p2.Text, Quantum = txt_Q.Text },
+                    new ProcessorTask{ Text = label3.Text, Value = textBox3.Text, Priority = p3.Text, Quantum = txt_Q.Text },
+                    new ProcessorTask{ Text = label4.Text, Value = textBox4.Text, Priority = p4.Text, Quantum = txt_Q.Text},
             });
 
             var array = processor.Process();
