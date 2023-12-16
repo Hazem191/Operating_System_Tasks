@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FCFS_SJF_RR_PRIORITY
@@ -121,37 +122,37 @@ namespace FCFS_SJF_RR_PRIORITY
         {
             var array = new ArrayList();
 
-            array.AddRange(tasks);
+            var taskQueue = new Queue<ProcessorTask>(tasks);
 
-            var result = new ArrayList();
-
-            int index = 0;
-
-            while (array.Count > 0)
+            while (taskQueue.Count > 0)
             {
-                if (index >= array.Count)
-                {
-                    index = 0;
-                }
-
-                var currentItem = array[index] as ProcessorTask;
+                var currentItem = taskQueue.Dequeue();
 
                 if (int.Parse(currentItem.Value) <= int.Parse(currentItem.Quantum))
                 {
-                    result.Add(array[index]);
-                    array.RemoveAt(index);
+                    array.Add(currentItem);
                 }
                 else
                 {
-                    currentItem.Value = (int.Parse(currentItem.Value) - int.Parse(currentItem.Quantum)).ToString();
+                    taskQueue.Enqueue(new ProcessorTask
+                    {
+                        Text = currentItem.Text,
+                        Value = (int.Parse(currentItem.Value) - int.Parse(currentItem.Quantum)).ToString(),
+                        Quantum = currentItem.Quantum,
+                        Priority = currentItem.Priority
+                    });
 
-                    result.Add(new ProcessorTask { Text = currentItem.Text, Value = currentItem.Quantum, Quantum = currentItem.Quantum, Priority = currentItem.Priority });
+                    array.Add(new ProcessorTask
+                    {
+                        Text = currentItem.Text,
+                        Value = currentItem.Quantum,
+                        Quantum = currentItem.Quantum,
+                        Priority = currentItem.Priority
+                    });
                 }
-
-                index++;
             }
 
-            return result;
+            return array;
         }
     }
 }
